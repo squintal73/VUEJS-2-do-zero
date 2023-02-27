@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="wiewport" content="width=device-with, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> Aula 7.1 - Vuejs do jeito Certo </title>
+    </head>
+    <body>
+        <div id="app"><!--Global Registration-->
+            <component-a post-title="hello component A"></component-a>
+            <component-b post-title="hello component B"></component-b>
+            <component-c post-title="hello component C"></component-c>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+
+            Vue.component('component-a', { 
+                props: ['postTitle'],
+                template: '<h3>{{ postTitle }}</h3>'
+             })
+            Vue.component('component-b', { 
+                props: ['postTitle'],
+                template: '<h3>{{ postTitle }}</h3>'
+             })
+            Vue.component('component-c', { 
+                props: ['postTitle'],
+                template: '<h3>{{ postTitle }}</h3>'
+             })
+
+             new Vue({ el: '#app' })
+
+        </script>
+    </body>
+</html>
