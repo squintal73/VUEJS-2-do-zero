@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="wiewport" content="width=device-with, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> Aula 10 - Vuejs do jeito Certo </title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>{{ titulo }}</h2>
+            <label>nome:</label>
+            <input type="text" v-model="nome">
+            <br><br>
+
+            <label>telefone:</label>
+            <input type="text" v-model="telefone">
+            <br><br>
+
+            <label for="">Deseja alguma novidade</label><br>
+            <input type="radio" value="sim" v-model="novidade">Sim
+            <input type="radio" value="nao" v-model="novidade">Não
+            <br><br>
+
+            <label for="">Interesses</label><br>
+            <input type="checkbox" value="surf" v-model="interesse">Surf<br>
+            <input type="checkbox" value="skate" v-model="interesse">Skate<br>
+            <input type="checkbox" value="kite-surf" v-model="interesse">Kite-Surf<br>
+            <br><br>
+
+            <label for="">Como nos conheceu</label><br>
+            <select v-model="conheceu">
+                <option value="">Escolha</option>
+                <option value="Google">Google</option>
+                <option value="TV">TV</option>
+                <option value="Revista">Revista</option>
+            </select>
+
+            <br><br>
+
+            <button>Enviar</button>
+
+           <hr>
+
+           Nome: {{ nome }} <br>
+           Telefone: {{ telefone }}<br>
+           Novidade: {{ novidade }}<br>
+           Interesses: {{ interesse }}<br>
+           Conheceu em: {{ conheceu }}<br>
+                         
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+            el: '#app',
+            data: {
+                nome:'',
+                titulo:'Diretiva V-model para formulários',
+                nome:'',
+                telefone:'',
+                interesse:[],
+                novidade:'',
+                conheceu:''
+                } 
+            })
+        </script>
+    </body>
+</html>
