@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <div id="app">
+    <h3>Vue Js local stroge object</h3>
+    <p>Vue Js Set,Get,Remove items from local storage</p>
+    <p>{{localstoreData}}</p>
+    <button @click="setData">Set items to local storage</button><br><br>
+    <button @click="getData">Get items from local storage</button><br><br>
+    <button @click="removeData">Delete item from local storage</button><br><br>
+  </div>
+  <script type="module">
+    import { createApp } from "vue";
+    createApp({
+      data() {
+        return {
+          data: 'Apple',
+          localstoreData: localStorage.getItem('fruit')
+        }
+      },
+
+      methods: {
+        setData() {
+          localStorage.setItem('fruit', this.data);
+          alert('Sucessfully Data added into localstorage');
+        },
+        getData() {
+          this.localstoreData = localStorage.getItem('fruit')
+
+        },
+        removeData() {
+          localStorage.removeItem('fruit')
+          this.localstoreData = localStorage.getItem('fruit');;
+          alert('Deleted data')
+        }
+      }
+    }).mount("#app");
+  </script>
+</body>
+
+
+</html>

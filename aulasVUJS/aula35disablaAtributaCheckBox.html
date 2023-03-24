@@ -1,0 +1,22 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>Using VueJS, you can change an input element's disabled attribute based on the value of a checkbox.</h3>
+        <input type="checkbox" v-model="disabled" />
+        <input type="text" :disabled="!disabled" />
+  </div>
+ <script type="module">
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    disabled: false
+                }
+            },
+        });
+</script>
+</body>
+</html>

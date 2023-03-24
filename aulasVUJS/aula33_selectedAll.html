@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+    <body>
+      <div id="app">
+        <h3>Vue Js checkbox select All/Unselect All</h3>
+        <input type="checkbox" v-model="checkedAll" />Checked All<br /><br />
+        <div v-for="(item,index) in items">
+          <input
+            :value="item.language"
+            type="checkbox"
+            v-model="item.checked"
+          />{{item.language}}
+        </div>
+
+      </div>
+      <script type="module">
+        import { createApp } from "vue";
+        createApp({
+          data() {
+            return {
+              checkedAll: true,
+              items: [
+                { language: "Vue", checked: true },
+                { language: "React", checked: true },
+                { language: "Angular", checked: true },
+                { language: "Node", checked: true },
+                { language: "Php", checked: true },
+                { language: "Bootstrap", checked: true },
+                { language: "Express", checked: true },
+              ],
+            };
+          },
+          watch: {
+            checkedAll(value) {
+              this.items.forEach((item) => (item.checked= value));
+            },
+          },
+        }).mount("#app");
+      </script>
+    </body>
+  </head>
+</html>

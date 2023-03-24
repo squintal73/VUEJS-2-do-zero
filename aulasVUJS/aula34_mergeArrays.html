@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>Vue Js inner Join Array Object</h3>
+        <table>
+            <h2>Employee</h2>
+            <tr>
+                <th>id:</th>
+                <th>Name</th>
+            </tr>
+            <tr v-for="employee in employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+            </tr>
+        </table>
+        <table>
+            <h2>Employee Details</h2>
+            <tr>
+                <th>Emp_id</th>
+                <th>Role</th>
+            </tr>
+            <tr v-for="employeeDetail in employeeDetails">
+                <td>{{employeeDetail.emp_id}}</td>
+                <td>{{employeeDetail.role}}</td>
+            </tr>
+        </table>
+        <h4>Merge Table</h4>
+        <button @click=" mergeArrayObject">click me</button>
+        <table>
+            <tr>
+                <th>id:</th>
+                <th>Name</th>
+                <th>Emp_id</th>
+                <th>Role</th>
+            </tr>
+            <tr v-for="result in results">
+                <td>{{result.id}}</td>
+                <td>{{result.name}}</td>
+                <td>{{result.emp_id}}</td>
+                <td>{{result.role}}</td>
+            </tr>
+        </table>
+    </div>
+    <script type="module">
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    employees: [
+                        { id: 1, name: 'Andrew' },
+                        { id: 2, name: 'John' },
+                        { id: 3, name: 'Robert' },
+                        { id: 4, name: 'Jos' },
+                    ],
+                    employeeDetails: [
+                        { emp_id: 1, role: 'Frontend Developer' },
+                        { emp_id: 2, role: 'Backend Developer' },
+                        { emp_id: 3, role: 'Fullstack Developer' },
+                        { emp_id: 4, role: 'IOS Developer' }
+                    ],
+                    results: '',
+
+                }
+            },
+            methods: {
+                mergeArrayObject() {
+                    this.results = this.employees.filter(emp => this.employeeDetails.map(empdtl => empdtl.emp_id).indexOf(emp.id) !== -1)
+                        .map(emp => {
+                            return { ...emp, ...this.employeeDetails.find(empdtl => empdtl.emp_id === emp.id) };
+                        });
+
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

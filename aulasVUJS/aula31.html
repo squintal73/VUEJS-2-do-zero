@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <div id="app">
+    <h3>Vue Js window.scrollTo(0,'0')</h3>
+    <p>Vue Js Scroll Top of Page</p>
+    <button @click="scrollTop" style="position:fixed">Top</button><br>
+
+  </div>
+  <script type="module">
+    import { createApp } from "vue";
+    createApp({
+      data() {
+        return {
+          top: 0,
+        
+        }
+      },
+      mounted(){
+        window.scrollTo(0,6000)
+      },
+      methods: {
+        scrollTop() {
+          window.scrollTo(0, this.top);
+        }
+      }
+    }).mount("#app");
+  </script>
+  <style>
+    body {
+      height: 5000px
+    }
+  </style>
+</body>
+
+
+</html>

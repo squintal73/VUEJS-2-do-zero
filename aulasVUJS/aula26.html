@@ -1,0 +1,70 @@
+<script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+  
+
+  <div id='app'>
+    <div class="form-check">
+        <input class="form-check-input" type='checkbox'  id='selectAll' v-model='checkAll'  />
+        <label class="form-check-label"  for='selectAll'>Select all</label>
+    </div>
+    <div class="form-check form-check-inline" v-for='c in country'>
+        <input class="form-check-input" type='checkbox'  :id='c.id' v-model='checked'  :value="c.countryName" />
+        <label class="form-check-label" :for='c.id' >{{c.countryName}}</label>
+    </div>
+    <p>{{checked}}</p>
+  </div>  
+  
+  <script type="module">
+    import { createApp } from 'vue'
+  
+    createApp({
+      data() {
+        return {
+        country:[
+                 {
+                  'id':'1',
+                  'countryName':'AMERICA'
+                },
+                {
+                 'id':'2',
+                 'countryName':'AUSTRALIA'
+                },
+                {
+                 'id':'3',
+                 'countryName':'INDIA'
+               },
+               {
+                 'id':'4',
+                 'countryName':'ENGLAND'
+               }
+              ],
+            checked:[]
+           
+          }
+      },
+      computed: {
+          checkAll: {
+              get: function () {
+                  return this.country ? this.checked.length == this.country.length : false;
+              },
+              set: function (value) {
+                  var checked = [];
+                  if (value) {
+                      this.country.forEach(function (c) {
+                          checked.push(c.countryName);
+                      });
+                  }
+                  this.checked = checked;
+              }
+          }
+      }
+  }).mount('#app')
+  </script>
+  
+  
+  

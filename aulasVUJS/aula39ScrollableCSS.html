@@ -1,0 +1,48 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h3>Vue Js div Vertically Scrollable using CSS </h3>
+    <div id="app">
+        <div class="scrollable" ref="messages">
+            <div v-for="message in messages" :key="message.id" class="message">{{ message.text }}</div>
+        </div>
+    </div>
+    <script type="module">
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    messages: [
+                        { id: 1, text: 'HTML' },
+                        { id: 2, text: 'CSS' },
+                        { id: 3, text: 'Javascript' },
+                        { id: 4, text: 'React' },
+                        { id: 5, text: 'Node' },
+                        { id: 6, text: 'Vue' },
+                        { id: 7, text: 'Angular' },
+                        { id: 8, text: 'Php' },
+                        { id: 9, text: 'Bootstrap' }
+                    ],
+
+                };
+            },
+        });
+    </script>
+    <style scoped>
+        .scrollable {
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+    <body>
+     <div id="app">
+      <h2>Vue js text.indexOf(character) Method </h2>
+      <p>Finding the first occurance of a string in the given text can be done by searching for the string within the text </p>
+      <p>{{text}}</p>
+      <p>Search String:{{searchString}}</p>
+      <button @click="myFunction">click me</button>
+      <p>Found at: {{results}} position</p>
+
+     </div>
+     <script type="module">
+      import { createApp } from 'vue'
+      createApp({
+      data()
+      { 
+        return{ 
+         text : 'In three months, I learned the Vue Js programming language.',
+         searchString:'Js',
+         results:''
+        } 
+     }, 
+     methods:{ 
+         myFunction(){ 
+            this.results = this.text.indexOf(this.searchString);
+           },
+          }
+      }).mount('#app')
+  </script>
+
+    </body>
+  </head>
+</html>

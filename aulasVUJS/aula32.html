@@ -1,0 +1,39 @@
+<html>
+
+<head>
+  <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <div id="app">
+    <h3>Vue Js v-bind:disabled Attribute on Input field</h3>
+    <p>Vue Js Enable/Disable input field on click</p>
+    <input v-bind:disabled="isDisabled" type="text">
+    <button @click="toggleDisabled">Disable/Enable</button>
+
+  </div>
+  <script type="module">
+    import { createApp } from "vue";
+    createApp({
+      data() {
+        return {
+          isDisabled: false
+        }
+      },
+      methods: {
+        toggleDisabled() {
+          this.isDisabled = !this.isDisabled
+        }
+      }
+    }).mount("#app");
+  </script>
+</body>
+
+
+</html>

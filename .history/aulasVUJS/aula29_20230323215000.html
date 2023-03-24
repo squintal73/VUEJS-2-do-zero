@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>Vue Js Toggle class</h3>
+        <p>Show Hide Text</p>
+        <p v-bind:class="{ hide: isActive }">Font Awesome Icons</p>
+        <button @click="isActive = !isActive"> click me</button>
+    </div>
+    <script type="module">
+        import { createApp } from "vue";
+        createApp({
+            data() {
+                return {
+                    isActive: false
+                }
+            },
+
+        }).mount("#app");
+    </script>
+    <style>
+        .hide {
+            display: none
+        }
+    </style>
+</body>
+
+</html>
